@@ -19,9 +19,9 @@
 |    130 | Surrounded      | DFS/BFS |           | 32 ms (98.99%)  | 14.6 mb (54%)     |                                          |
 |     18 | 4sum            | Hash    |           | 116 ms (13%)    | 39 mb  (large)    | pair sum approach is extremely slow.     |
 | 207bfs | Course Schedule | BFS     |           | 36 ms (BFS 30%) | 19.8 mb (BFS 12%) |                                          |
-| 207dfs | Course Schedule | DFS     |           | 36 ms (DFS)     | 17.6 mb           | avoided dulplicated search               |
+| 207dfs | Course Schedule | DFS     |           | 36 ms (DFS 30%) | 17.6 mb           | avoided dulplicated search               |
 |     11 | container       | 2-ptrs  |           | 20 ms (98.42%)  | 9.7 mb (99.72%)   |                                          |
-|        |                 |         |           |                 |                   |                                          |
+|     18 | merge intervals | hash    |           | 12 ms (99.49%)  | 13.6 mb (5%)      |                                          |
 |--------+-----------------+---------+-----------+-----------------+-------------------+------------------------------------------|
 
 
