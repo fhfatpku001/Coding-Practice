@@ -1,29 +1,30 @@
 * Question Submission Result:
 
 
-|--------+-----------------+---------+-----------+-----------------+-------------------+------------------------------------------|
-|     Q# | Name            | Type    | Solutions | Speed           | Memory            | Notes                                    |
-|--------+-----------------+---------+-----------+-----------------+-------------------+------------------------------------------|
-|    113 | Path Sum II     | BTree   |           | 12 ms (100%)    | 10 MB (100%)      | far less memory than any other solutions |
-|    129 | Sum Root to     | BTree   |           | 4 ms (100%)     | 9 MB (100%)       |                                          |
-|     16 | 3Sum Closet     | BSearch |           | 8 ms (100%)     | 8.6 MB (100%)     |                                          |
-|    771 | Jewels and      | Hash    |           | 4 ms (100%)     | 8.4 MB (99.32%)   |                                          |
-|     55 | Jump Game       | DProg   |           | 12 ms (98.54%)  | 9.8 MB (98.41%)   |                                          |
-|     54 | Spiral Matr     | Array   |           | 4 ms (100%)     | 8.6 MB (99.01%)   |                                          |
-|    542 | 01 Matrix       | BFS     |           | 208 ms (56%)    | 25.8 MB (37%)     |                                          |
-|    752 | Open lock       | BFS     |           | 124ms (81%)     | 27.7 MB (78%)     |                                          |
-|   1035 | uncross line    | DProg   |           | 16 ms (60%)     | 11.9 MB (100%)    |                                          |
-|    733 | flood fill      | BFS     |           | 28 ms (81%)     | 10.9 MB (100%)    |                                          |
-|    841 | keys & rooms    | BFS/DFS |           | 12 ms (99%)     | 10.9 MB (95.19%)  |                                          |
-|      3 | Longest substr  | DP/Hash |           | 124 ms (99.54%) | 10.6 MB (98.92%)  |                                          |
-|    130 | Surrounded      | DFS/BFS |           | 32 ms (98.99%)  | 14.6 MB (54%)     |                                          |
-|     18 | 4sum            | Hash    |           | 116 ms (13%)    | 39 MB  (large)    | pair sum approach is extremely slow.     |
-| 207bfs | Course Schedule | BFS     |           | 36 ms (BFS 30%) | 19.8 MB (BFS 12%) |                                          |
-| 207dfs | Course Schedule | DFS     |           | 36 ms (DFS 30%) | 17.6 MB           | avoided dulplicated search               |
-|     11 | container       | 2-ptrs  |           | 20 ms (98.42%)  | 9.7 MB (99.72%)   |                                          |
-|     18 | merge intervals | hash    |           | 12 ms (99.49%)  | 13.6 MB (5%)      |                                          |
-|    215 | k-th ele        | heap/pq |           | 16 ms (65%)     | 9.8 MB (21.26%)   |                                          |
-|    454 | 4 sum count     | hash    |           | 204 ms (65%)    | 28.7 MB (88.79%)  |                                          |
-|--------+-----------------+---------+-----------+-----------------+-------------------+------------------------------------------|
+|--------+-----------------+------------+-----------+-----------------+-------------------+------------------------------------------|
+|     Q# | Name            | Type       | Solutions | Speed           | Memory            | Notes                                    |
+|--------+-----------------+------------+-----------+-----------------+-------------------+------------------------------------------|
+|    113 | Path Sum II     | BTree      |           | 12 ms (100%)    | 10 MB (100%)      | far less memory than any other solutions |
+|    129 | Sum Root to     | BTree      |           | 4 ms (100%)     | 9 MB (100%)       |                                          |
+|     16 | 3Sum Closet     | BSearch    |           | 8 ms (100%)     | 8.6 MB (100%)     |                                          |
+|    771 | Jewels and      | Hash       |           | 4 ms (100%)     | 8.4 MB (99.32%)   |                                          |
+|     55 | Jump Game       | DProg      |           | 12 ms (98.54%)  | 9.8 MB (98.41%)   |                                          |
+|     54 | Spiral Matr     | Array      |           | 4 ms (100%)     | 8.6 MB (99.01%)   |                                          |
+|    542 | 01 Matrix       | BFS        |           | 208 ms (56%)    | 25.8 MB (37%)     |                                          |
+|    752 | Open lock       | BFS        |           | 124ms (81%)     | 27.7 MB (78%)     |                                          |
+|   1035 | uncross line    | DProg      |           | 16 ms (60%)     | 11.9 MB (100%)    |                                          |
+|    733 | flood fill      | BFS        |           | 28 ms (81%)     | 10.9 MB (100%)    |                                          |
+|    841 | keys & rooms    | BFS/DFS    |           | 12 ms (99%)     | 10.9 MB (95.19%)  |                                          |
+|      3 | Longest substr  | DP/Hash    |           | 124 ms (99.54%) | 10.6 MB (98.92%)  |                                          |
+|    130 | Surrounded      | DFS/BFS    |           | 32 ms (98.99%)  | 14.6 MB (54%)     |                                          |
+|     18 | 4sum            | Hash       |           | 116 ms (13%)    | 39 MB  (large)    | pair sum approach is extremely slow.     |
+| 207bfs | Course Schedule | BFS        |           | 36 ms (BFS 30%) | 19.8 MB (BFS 12%) |                                          |
+| 207dfs | Course Schedule | DFS        |           | 36 ms (DFS 30%) | 17.6 MB           | avoided dulplicated search               |
+|     11 | container       | 2-ptrs     |           | 20 ms (98.42%)  | 9.7 MB (99.72%)   |                                          |
+|     18 | merge intervals | hash       |           | 12 ms (99.49%)  | 13.6 MB (5%)      |                                          |
+|    215 | k-th ele        | heap/pq    |           | 16 ms (65%)     | 9.8 MB (21.26%)   |                                          |
+|    454 | 4 sum count     | hash       |           | 204 ms (65%)    | 28.7 MB (88.79%)  |                                          |
+|    179 | Largestnumber   | Sort(Cust) |           | 4 ms (99.96%)   | 9.3 MB (98.95%)   |                                          |
+|--------+-----------------+------------+-----------+-----------------+-------------------+------------------------------------------|
 
 
