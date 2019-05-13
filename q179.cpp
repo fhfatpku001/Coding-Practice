@@ -11,7 +11,7 @@ bool myfunction (string s ,string t) {
 
 class Solution {
 private:
-  static bool myfunction (string s ,string t) {
+  static bool myfunction (const string &s , const string &t) {
     return (s+t)>(t+s);
   }
 
