@@ -1,6 +1,14 @@
 
 class Solution {
-  void helper_DFS (vector<vector<bool>>& visited, vector<vector<char>>& board, int row, int col) {
+	
+// put public function in front of private
+ // lets make sample comments	
+  // Helper function with depth first search on the board	
+  // @param: visited - input/output matrix marking the visited pos on the board	
+  // @param: board   - input board matrix
+  // @param: row     - index of the row for searching starting point
+  // @param: col     - index of the col for searching starting point
+  void helper_DFS (vector<vector<bool>>& visited, const vector<vector<char>>& board, const int row, const int col) {
     /*We mark all connected points as visited O points*/
     stack<pair<int,int>> st;
     visited[row][col] = true;
