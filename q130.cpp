@@ -3,7 +3,8 @@ class Solution {
 	
 // put public function in front of private
  // lets make sample comments	
-  // Helper function with depth first search on the board	
+  // Helper function with depth first search on the board
+  // we prefer put input param in front of output param	
   // @param: visited - input/output matrix marking the visited pos on the board	
   // @param: board   - input board matrix
   // @param: row     - index of the row for searching starting point
