@@ -3,7 +3,11 @@
  * The reason is in the comparison, int sort use to_string, If we sort string, we eliminate may unnecessary to_string operations. So it is much faster
  * Tricky point 2: at 0 case, if we find 0, we don't have to do sorting*/
 
-
+namespace {
+bool myfunction (string s ,string t) {
+  return (s+t)>(t+s);
+}
+}  // namespace 
 
 class Solution {
 private:
