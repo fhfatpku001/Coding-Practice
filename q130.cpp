@@ -56,7 +56,7 @@ public:
     if (col_size == 0) return;
 
     // search fixed, not_visited O markings.
-    vector<vector<bool>> visited(row_size, vector<bool>(col_size, false);
+    vector<vector<bool>> visited(row_size, vector<bool>(col_size, false));
 	  
     // Search all boundary. 
     for (int i = 0; i < row_size; ++i) {
