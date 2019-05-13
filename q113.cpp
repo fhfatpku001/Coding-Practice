@@ -9,8 +9,10 @@
  */
 class Solution {
 public:
+	// use const vector<TreeNode*> &vec
   vector<int> convert (vector<TreeNode*> vec) {
     vector<int> result;
+	  // use const auto &
     for (auto it : vec) {
       result.push_back(it->val);
     }
@@ -38,6 +40,7 @@ public:
 	pos = pos->left;
 	st.push_back(pos);
 	isLeaf = true;
+	      // use nullptr
 	tpos->left = NULL;
 	cursum += pos->val;
       } else if (pos->right) {
@@ -45,6 +48,7 @@ public:
 	pos = pos->right;
 	st.push_back(pos);
 	isLeaf = true;
+	      // use nullptr
 	tpos->right = NULL;
 	cursum += pos->val;
       } else {
