@@ -10,6 +10,7 @@
 class Solution {
 public:
   int sumNumbers(TreeNode* root) {
+	  // use if () {} instead of one line
     if (!root) return 0;
     stack<TreeNode*> st;
     int cur = root->val;
@@ -23,12 +24,14 @@ public:
       if (pos->left) {
 	isleaf = true;
 	pos = pos->left;
+	      // nullptr
 	st.top()->left = NULL;
 	st.push(pos);
 	cur = cur*10 + pos->val;
       } else if (pos->right) {
 	isleaf = true;
 	pos = pos->right;
+	      // nullptr
 	st.top()->right = NULL;
 	st.push(pos);
 	cur = cur*10 + pos->val;
