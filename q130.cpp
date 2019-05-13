@@ -56,11 +56,8 @@ public:
     if (col_size == 0) return;
 
     // search fixed, not_visited O markings.
-    vector<bool> t_v_b;
-    vector<vector<bool>> visited;
-    t_v_b.resize(col_size,false);
-    visited.resize(row_size, t_v_b);
-
+    vector<vector<bool>> visited(row_size, vector<bool>(col_size, false);
+	  
     // Search all boundary. 
     for (int i = 0; i < row_size; ++i) {
       if (board[i][0] == 'O' && visited[i][0] == false) {
