@@ -5,7 +5,7 @@
 class Solution {
 public:
   int maxArea(const vector<int>& height) {
-    if (!height.empty()) {
+    if (height.empty()) {
       return 0;
     }
     int max_area = 0;
@@ -17,7 +17,7 @@ public:
       if (height[l] < height[r]) {
         ++l;
       } else {
-        r--;
+        --r;
       }
     }
     return max_area;

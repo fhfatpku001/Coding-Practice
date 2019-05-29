@@ -1,12 +1,12 @@
 class Solution {
 public:
-  vector<vector<int>> fourSum(vector<int>& nums, int target) {
+  vector<vector<int>> fourSum(const vector<int>& nums, const int target) {
     /*Instead of doing O(N^3) hash, we do some fancy jobs.:)
      * We define an unordered_map from sum to pair of position.
      * If we know the sum, we know exactly the position. 
      */
     vector<vector<int>> result;
-    int size = nums.size();
+    size_t size = nums.size();
     if (size < 4) return result;
 
     sort(nums.begin(), nums.end());
@@ -15,8 +15,8 @@ public:
 
     int sum;
     
-    for (int i = 0; i < size - 1; ++i) {
-      for (int j = i+1; j < size; ++j) {
+    for (size_t i = 0; i < size - 1; ++i) {
+      for (size_t j = i+1; j < size; ++j) {
 	sum = nums[i]+nums[j];
 	if (pair_pos_map.count(sum) == 0) {
 	  list<pair<int,int>> li_same_sum_pairs; // create new list;
@@ -32,8 +32,8 @@ public:
     int k,l;
     int last;
     
-    for (int i = 0; i < size -3; ++i) {
-      for (int j = i+1; j < size - 2; ++j) {
+    for (size_t i = 0; i < size -3; ++i) {
+      for (size_t j = i+1; j < size - 2; ++j) {
 	sum = nums[i]+nums[j];
 	if (pair_pos_map.count(target - sum)>0) {
 	  it_pair = pair_pos_map[target-sum].begin();
