@@ -1,29 +1,3 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <queue>
-#include <stack>
-#include <algorithm>
-#include <functional>
-#include <unordered_map>
-#include <unordered_set>
-#include <utility>
-#include <list>
-#include <cmath>
-#include <sstream>
-#include <climits>
-using namespace std;
-
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-
 class btree {
 private:
   struct TreeNode {
@@ -482,36 +456,40 @@ public:
     prettyPrintTree(root, "", true);
   }
 
+  vector<vector<int>> levelOrderBottom(TreeNode* root) {
+
+    vector<vector<int>> result;
+    vector<TreeNode*> level_nodes(1,root);
+        
+    while (!level_nodes.empty()) {
+      
+      vector<int> temp;
+      
+      for (size_t i = 0; i < level_nodes.size(); ++i) {
+	temp.push_back(level_nodes[i]->val);
+      }
+
+      result.push_back(temp);
+      
+      vector<TreeNode*> next_level;
+
+      for (size_t i = 0; i < level_nodes.size(); ++i) {
+	if (level_nodes[i]->left) {
+	  next_level.push_back(level_nodes[i]->left);
+	}
+
+	if (level_nodes[i]->right) {
+	  next_level.push_back(level_nodes[i]->right);
+	}
+      }
+
+      level_nodes = next_level;
+    }
+    
+    reverse(result.begin(), result.end());
+
+    return result;
+  }
   
   
 };
-
- 
-int main()
-{   
-  string str = "[2,1,3]";
-  btree* obj = new btree(str);
-  obj -> ptree();
-
-  cout << obj->root << endl;
-  
-  return 0;
-}
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
