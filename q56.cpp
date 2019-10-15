@@ -69,3 +69,59 @@ int main( )
   
   return 0;
 }
+
+
+//--------------------
+
+class Solution {
+public:
+  vector<vector<int>> merge(const vector<vector<int>>& intervals) {
+    if (intervals.empty()) {
+      return {};
+    }
+
+    unordered_map<int, int> count_num; 
+    vector<int> unique_num;
+
+    for (size_t i = 0; i < intervals.size(); ++i) {
+      //intervals[i][0]
+      if (count_num.count(intervals[i][0]) > 0) {
+	++count_num[intervals[i][0]];
+      } else {
+	count_num[intervals[i][0]] = 1;
+	unique_num.push_back(intervals[i][0]);
+      }
+
+      if (count_num.count(intervals[i][1]) > 0) {
+	--count_num[intervals[i][1]];
+      } else {
+	count_num[intervals[i][1]] = -1;
+	unique_num.push_back(intervals[i][1]);
+      }
+    }
+
+    sort(unique_num.begin(), unique_num.end());
+
+    int cur_count = 0;
+    int cur_l;
+    vector<vector<int>> result;
+    
+    for (int i = 0; i < unique_num.size(); ++i) {
+      if (count_num[unique_num[i]] == 0) {
+	if (cur_count == 0) {
+	  result.push_back({unique_num[i], unique_num[i]});
+	}
+      } else if (cur_count == 0) {
+	cur_l = unique_num[i];
+	cur_count += count_num[unique_num[i]];
+      } else {
+	cur_count += count_num[unique_num[i]];
+	if (cur_count == 0) {
+	  result.push_back({cur_l, unique_num[i]});
+	}
+      }
+    }
+
+    return result;
+  }
+};

@@ -110,3 +110,66 @@ int main( )
   
   return 0;
 }
+
+
+class Solution {
+public:
+  void solve(vector<vector<char>>& board_p) {
+    vector<vector<char>> board = board_p;
+    
+    if (board.empty() || board[0].empty()) {
+      return;
+    }
+
+    vector<vector<bool>> visited(board.size(), vector<bool>(board[0].size(), false));
+
+    for (size_t i = 0; i < board.size(); ++i) {
+      if (board[i][0] == 'O') {
+	backtracking(board, i, 0, visited);
+      }
+
+      if (board[i].back() == 'O') {
+	backtracking(board, i, board[i].size() - 1, visited);
+      }
+    }
+
+    for (size_t j = 0; j < board[0].size(); ++j) {
+      if (board[0][j] == 'O') {
+	backtracking(board, 0, j, visited);
+      }
+
+      if (board.back()[j] == 'O') {
+	backtracking(board, board.size() - 1, j, visited);
+      }
+    }
+
+    for (size_t i = 0; i < board.size(); ++i) {
+      for (size_t j = 0; j < board[i].size(); ++j) {
+	if (board_p[i][j] == board[i][j]) {
+	  board_p[i][j] = 'X';
+	}
+      }
+    }
+  }
+
+  void backtracking (vector<vector<char>>& board, size_t row, size_t col, vector<vector<bool>>& visited) {
+    visited[row][col] = true;
+    board[row][col] = 'X';
+
+    if (row != 0 && !visited[row - 1][col] && board[row - 1][col] == 'O') {
+      backtracking(board, row - 1, col, visited);
+    }
+
+    if (col != 0 && !visited[row][col - 1] && board[row][col - 1] == 'O') {
+      backtracking(board, row, col - 1, visited);
+    }
+
+    if (row + 1 != board.size() && !visited[row + 1][col] && board[row + 1][col] == 'O') {
+	backtracking(board, row + 1, col, visited);
+    }
+
+    if (col + 1 != board[row].size() && !visited[row][col + 1] && board[row][col + 1] == 'O') {
+      backtracking(board, row, col + 1, visited);
+    }
+  }
+};

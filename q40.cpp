@@ -78,7 +78,51 @@ int main()
   return 0;
 }
  
+class Solution {
+public:
+  /*next  2,2,2,2 we only choose one of the next available.*/
+  vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+    vector<vector<int>> result;
+    if (candidates.empty() || target <= 0) {
+      return result;
+    }
 
+    vector<int> cur_cand;
+    sort(candidates.begin(), candidates.end());
+    int last_ele_pos = candidates.size();
+    backtracking(result, target, cur_cand, candidates, last_ele_pos);
+
+    return result;
+  }
+
+  void backtracking (vector<vector<int>>& result, int target, vector<int>& cur_cand, const vector<int>& candidates, int last_ele_pos) {
+    if (target == 0 && !cur_cand.empty()) {
+      result.push_back(cur_cand);
+    } else {
+      bool is_first = true;
+      int prev_chosen_element;
+
+      for (int i = last_ele_pos - 1; i >= 0; --i) {
+	if (i < (int) candidates.size() && candidates[i] <= target ) {
+	  if (is_first) {
+	    is_first = false;
+	    prev_chosen_element = candidates[i];
+	    cur_cand.push_back(candidates[i]);
+	    backtracking(result, target - candidates[i], cur_cand, candidates, i);
+	  } else if (prev_chosen_element > candidates[i]) {
+	    prev_chosen_element = candidates[i];
+	    cur_cand.push_back(candidates[i]);
+	    backtracking(result, target - candidates[i], cur_cand, candidates, i);
+	  } 
+	}
+      }
+     }
+
+    if (!cur_cand.empty()) {
+      cur_cand.pop_back();
+    }
+  }
+};
 
 
 

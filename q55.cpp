@@ -18,3 +18,28 @@ public:
     return true;
   }
 };
+
+class Solution {
+public:
+  bool canJump(vector<int>& nums) {
+    if (nums.empty()) {
+      return true;
+    } else if (nums[0] <= 0 && nums.size() > 1) {
+      return false;
+    }
+    
+    for (size_t i = 1; i < nums.size(); ++i) {
+      if (i == nums.size() - 1) {
+	return true;
+      }
+
+      nums[i] = max(nums[i - 1] - 1, nums[i]);
+
+      if (nums[i] <= 0) {
+	return false;
+      }
+    }
+    
+    return true;
+  }
+};

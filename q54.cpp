@@ -56,3 +56,50 @@ public:
       return result;
     }
 };
+
+class Solution {
+public:
+  vector<int> spiralOrder(const vector<vector<int>>& matrix) {
+    if (matrix.empty() || matrix[0].empty()) {
+      return {};
+    }
+
+    int l = 0, r = (int) matrix[0].size() - 1;
+    int b = 0, e = (int) matrix.size() - 1;
+
+    int dir = 0; // direction {0, 1, 2, 3};
+    vector<int> result;
+    
+    while ((b <= e) && (l <= r)) {
+      if (dir == 0) {
+	for (int j = l; j <= r; ++j) {
+	  result.push_back(matrix[b][j]);
+	}
+
+	++b;
+      } else if (dir == 1) {
+	for (int i = b; i <= e; ++i) {
+	  result.push_back(matrix[i][r]);
+	}
+	
+	--r;
+      } else if (dir == 2) {
+	for (int j = r; j >= l; --j) {
+	  result.push_back(matrix[e][j]);
+	}
+
+	--e;
+      } else {
+	for (int i = e; i >= b; --i) {
+	  result.push_back(matrix[i][l]);
+	}
+
+	++l;
+      }
+
+      dir = (dir + 1) % 4;
+    }
+
+    return result;
+  }
+};
