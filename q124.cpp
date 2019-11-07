@@ -7,32 +7,37 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
-public:
   int maxPathSum(TreeNode* root) {
     if (!root) {
       return 0;
     }
 
+    unordered_map<TreeNode*, int> left_path; 
+    unordered_map<TreeNode*, int> right_path;
+    left_path[nullptr] = 0;
+    right_path[nullptr] = 0;
+    int max_sum = INT_MIN;
+    
     stack<TreeNode*> st;
-    int max_path_sum = root->val;
-    unordered_map<TreeNode*, int> max_to_node;
     st.push(root);
 
+    //postordertraversal 1 pass stack.
     while (!st.empty()) {
-      if (st.top()->left && max_to_node.count(st.top()->left) == 0) {
+      if (st.top()->left && left_path.count(st.top()->left) == 0) {
 	st.push(st.top()->left);
-      } else if (st.top()->right && max_to_node.count(st.top()->right) == 0) {
+      } else if (st.top()->right && left_path.count(st.top()->right) == 0) {
 	st.push(st.top()->right);
       } else {
-	int max_to_left_node = (st.top()->left) ? max_to_node[st.top()->left] : 0;
-	int max_to_right_node = (st.top()->right) ? max_to_node[st.top()->right] : 0;
-	max_to_node[st.top()] = max(st.top()->val, max(max_to_left_node, max_to_right_node) + st.top()->val);
-	max_path_sum = max(max_path_sum, max(max_to_node[st.top()], max_to_left_node + max_to_right_node + st.top()->val));
+	left_path[st.top()] = max(max(left_path[st.top()->left], right_path[st.top()->left]),0) + st.top()->val;
+	right_path[st.top()] = max(max(left_path[st.top()->right], right_path[st.top()->right]), 0) + st.top()->val;
+
+	int cur_path_sum = max(left_path[st.top()] + right_path[st.top()] - st.top()->val, max(left_path[st.top()], right_path[st.top()]));
+	if (cur_path_sum > max_sum) {
+	  max_sum = cur_path_sum;
+	}
 	st.pop();
       }
     }
 
-    return max_path_sum;
+    return max_sum;
   }
-};
